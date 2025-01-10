@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <head>
+    <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
+
+    <meta charset="UTF-8">
+    
+    <title>Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.1/css/bootstrap.min.css">
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.1/js/bootstrap.min.js"></script>
+
+<script src="https://npm.elemecdn.com/@waline/client@v2/dist/waline.js"></script>
+<link
+  rel="stylesheet"
+  href="https://npm.elemecdn.com/@waline/client@v2/dist/waline.css"
+/>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <style>
+        /* 花瓣样式 */
+        .petal {
+            position: fixed;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 192, 203, 0.8);
+            border-radius: 50%;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* 心形跳动效果 */
+        .heart {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            background: red;
+            transform: rotate(-45deg);
+            animation: heartbeat 1.5s infinite;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+        }
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+        .heart::after {
+            left: 25px;
+            top: 0;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+        }
+
+        /* 灰色点背景样式 */
+        .grid-background {
+            background: #fff;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%2710%27 viewBox=%270 0 10 10%27%3E%3Cg fill=%27%23ccc%27 fill-opacity=%270.5%27%3E%3Ccircle cx=%275%27 cy=%275%27 r=%271%27/%3E%3C/g%3E%3C/svg%3E');
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <div id="app">
+        <div class="container-fluid position-relative">
+            <nav class="navbar navbar-expand-lg navbar-dark  text-white bg-transparent">
+                <div class="container">
+                    <a class="navbar-brand" href="/">💖 If You Like 💖</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+                        <span class="navbar-text">
+                            💕 But I Still Say They&#39;re Flowers 🍂
+                        </span>
+                    </div>
+                </div>
+            </nav>
+            <section class="lover-background" style="background-image: url(/img/banner.jpg)">
+            </section>
+            <section class="container lover-container d-flex flex-column align-content-center justify-content-center">
+                <div class="row align-items-center pb-5 lover">
+                    <div class="col">
+                        <div class="d-flex flex-column">
+                            <img class="mx-auto avatar-img rounded-circle" src="/img/boyavatar.jpg" alt="">
+                            <h4 class="mx-auto text-white pt-2">
+                                D Sun
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-center">
+                            <div class="heart"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-column">
+                            <img class="mx-auto avatar-img rounded-circle" src="/img/girlavatar.jpg" alt="">
+                            <h4 class="mx-auto text-white pt-2">
+                                XR Yang
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="main-hero-waves-area waves-area">
+                <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z">
+                        </path>
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="3"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="5"></use>
+                        <use xlink:href="#gentle-wave" x="48" y="7"></use>
+                    </g>
+                </svg>
+            </section>
+        </div>
+
+        <div id="content" class="grid-background">
+            <div class="container" style="padding-bottom: 80px !important;">
+                <div id="Pjax">
+    <div class="container">
+        <h5 class="list-text fade-in-up">📷记录我们的美好瞬间</h5>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        
+                            
+                                <div class="album-collection mb-4 shadow-sm p-3 bg-transparent rounded fade-in-up">
+                                    <h5 class="card-title">
+                                        我们的第一次旅行
+                                    </h5>
+                                    <p class="card-text">
+                                        2023-05-01
+                                    </p>
+                                    <div class="row">
+                                        
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 text-right">
+                                            <a href="/album-collection/0"
+                                                class="btn btn-primary btn-circle">></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="dotted fade-in-up">
+                                
+                                    
+                            
+                                    
+                            
+                                <div class="album-collection mb-4 shadow-sm p-3 bg-transparent rounded fade-in-up">
+                                    <h5 class="card-title">
+                                        生日派对2
+                                    </h5>
+                                    <p class="card-text">
+                                        2023-06-15
+                                    </p>
+                                    <div class="row">
+                                        
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/banner.jpg" class="img-fluid"
+                                                        alt="切蛋糕的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/boyavatar.jpg" class="img-fluid"
+                                                        alt="生日派对">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 text-right">
+                                            <a href="/album-collection/2"
+                                                class="btn btn-primary btn-circle">></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="dotted fade-in-up">
+                                
+                                    
+                            
+                                    
+                            
+                                <div class="album-collection mb-4 shadow-sm p-3 bg-transparent rounded fade-in-up">
+                                    <h5 class="card-title">
+                                        生日派对2
+                                    </h5>
+                                    <p class="card-text">
+                                        2023-06-15
+                                    </p>
+                                    <div class="row">
+                                        
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/banner.jpg" class="img-fluid"
+                                                        alt="切蛋糕的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/boyavatar.jpg" class="img-fluid"
+                                                        alt="生日派对">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 text-right">
+                                            <a href="/album-collection/4"
+                                                class="btn btn-primary btn-circle">></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="dotted fade-in-up">
+                                
+                                    
+                    </div>
+                    <div class="col-md-5 ml-md-4">
+                        
+                            
+                                    
+                            
+                                <div class="album-collection mb-4 shadow-sm p-3 bg-transparent rounded fade-in-up">
+                                    <h5 class="card-title">
+                                        生日派对
+                                    </h5>
+                                    <p class="card-text">
+                                        2023-06-15
+                                    </p>
+                                    <div class="row">
+                                        
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/banner.jpg" class="img-fluid"
+                                                        alt="切蛋糕的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/boyavatar.jpg" class="img-fluid"
+                                                        alt="生日派对">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/banner.jpg" class="img-fluid"
+                                                        alt="切蛋糕的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/boyavatar.jpg" class="img-fluid"
+                                                        alt="生日派对">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album.jpg" class="img-fluid"
+                                                        alt="吹蜡烛的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/banner.jpg" class="img-fluid"
+                                                        alt="切蛋糕的瞬间">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/boyavatar.jpg" class="img-fluid"
+                                                        alt="生日派对">
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 text-right">
+                                            <a href="/album-collection/1"
+                                                class="btn btn-primary btn-circle">></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="dotted fade-in-up">
+                                
+                                    
+                            
+                                    
+                            
+                                <div class="album-collection mb-4 shadow-sm p-3 bg-transparent rounded fade-in-up">
+                                    <h5 class="card-title">
+                                        我们的第一次旅行
+                                    </h5>
+                                    <p class="card-text">
+                                        2023-05-01
+                                    </p>
+                                    <div class="row">
+                                        
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/lantern.webp" class="img-fluid"
+                                                        alt="在海边的合影">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4 p-1">
+                                                <div class="img-container">
+                                                    <img src="/img/album1/livingroom.webp" class="img-fluid"
+                                                        alt="在山顶的合影">
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 text-right">
+                                            <a href="/album-collection/3"
+                                                class="btn btn-primary btn-circle">></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="dotted fade-in-up">
+                                
+                                    
+                            
+                                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .fade-in-up.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        border: none;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .img-container {
+        width: 100%;
+        padding-top: 100%;
+        position: relative;
+    }
+
+    .img-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 25px;
+        /* 调整边角更圆 */
+    }
+
+    .dotted {
+        border-top: 2px dotted #bbb;
+        /* 调整虚线更粗 */
+    }
+
+    .album-collection {
+        margin-bottom: 20px;
+        background-color: transparent;
+        /* 透明背景 */
+    }
+
+    .btn-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        padding: 0;
+        margin-top: 10px;
+        /* 确保按钮不与虚线重叠 */
+        float: right;
+        /* 靠右 */
+        position: absolute;
+        /* 确保按钮在小卡片范围内 */
+        right: 10px;
+        /* 调整按钮位置 */
+        bottom: 10px;
+        /* 调整按钮位置 */
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('.fade-in-up').each(function (i) {
+            var $item = $(this);
+
+            $item.addClass('show');
+
+        });
+    });
+
+    $(document).on('pjax:end', function () {
+        $('.fade-in-up').each(function (i) {
+            var $item = $(this);
+
+            $item.addClass('show');
+
+        });
+    });
+</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-5 text-center ">
+  <p class="h6"> Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> ※ Theme is <a
+          href="https://github.com/beimengyeyu/hexo-theme-brave" target="_blank">Brave</a></p>
+</div>
+
+    <script>
+        // 添加花瓣飘落效果
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(petal);
+            setTimeout(() => {
+                petal.remove();
+            }, 5000);
+        }
+        setInterval(createPetal, 300);
+    </script>
+</body>
+
+</html>
